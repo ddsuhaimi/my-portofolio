@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import { projects } from "../data/projects";
+import { route } from "../lib/paths";
 
 const featuredProjects = projects.slice(0, 3);
 ---
@@ -18,8 +19,8 @@ const featuredProjects = projects.slice(0, 3);
 				code the next engineer can actually follow.
 			</p>
 			<div class="button-row">
-				<a class="button button-primary" href="/projects">View projects</a>
-				<a class="button button-secondary" href="/contact">Get in touch</a>
+				<a class="button button-primary" href={route("/projects")}>View projects</a>
+				<a class="button button-secondary" href={route("/contact")}>Get in touch</a>
 			</div>
 		</div>
 	</section>
@@ -31,7 +32,7 @@ const featuredProjects = projects.slice(0, 3);
 				{featuredProjects.map((project) => <ProjectCard project={project} />)}
 			</div>
 			<p style="margin-top:2rem;">
-				<a href="/projects">See all projects &rarr;</a>
+				<a href={route("/projects")}>See all projects &rarr;</a>
 			</p>
 		</div>
 	</section>

@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { projects } from "../../data/projects";
+import { asset, route } from "../../lib/paths";
 
 export function getStaticPaths() {
 	return projects.map((project) => ({
@@ -16,7 +17,7 @@ const heroImage = project.image ?? project.screenshots?.[0];
 <Layout title={project.title} description={project.summary}>
 	<section class="hero" style="padding-bottom: 1.5rem;">
 		<div class="container">
-			<a class="back-link" href="/projects">&larr; All projects</a>
+			<a class="back-link" href={route("/projects")}>&larr; All projects</a>
 			<h1>{project.title}</h1>
 			<div class="project-meta">
 				<span class="project-category">{project.category}</span>
@@ -36,7 +37,7 @@ const heroImage = project.image ?? project.screenshots?.[0];
 			{
 				heroImage && (
 					<div class="lightbox-trigger" data-lightbox>
-						<img src={heroImage} alt={project.title} class="project-hero-image" />
+						<img src={asset(heroImage)} alt={project.title} class="project-hero-image" />
 						<span class="lightbox-hint">
 							<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
 							Click to expand
@@ -83,7 +84,7 @@ const heroImage = project.image ?? project.screenshots?.[0];
 					<div class="screenshot-grid">
 						{project.screenshots.map((src) => (
 							<div class="lightbox-trigger" data-lightbox>
-								<img src={src} alt={`${project.title} screenshot`} class="screenshot-frame" loading="lazy" decoding="async" />
+								<img src={asset(src)} alt={`${project.title} screenshot`} class="screenshot-frame" loading="lazy" decoding="async" />
 								<span class="lightbox-hint">
 									<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
 									Expand

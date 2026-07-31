@@ -1,5 +1,6 @@
 ---
 import type { Project } from "../data/projects";
+import { asset, route } from "../lib/paths";
 
 interface Props {
 	project: Project;
@@ -9,11 +10,11 @@ const { project } = Astro.props;
 ---
 
 <article class="project-card">
-	<a class="project-card-link" href={`/projects/${project.slug}`}>
+	<a class="project-card-link" href={route(`/projects/${project.slug}`)}>
 		{
 			project.image && (
 				<img
-					src={project.image}
+					src={asset(project.image)}
 					alt={project.title}
 					class="project-image"
 					loading="lazy"
