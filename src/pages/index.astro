@@ -1,0 +1,38 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import { projects } from "../data/projects";
+
+const featuredProjects = projects.slice(0, 3);
+---
+
+<Layout title="Home" description="Dedi — Full-Stack Software Engineer building reliable, scalable web applications.">
+	<section class="hero">
+		<div class="container">
+			<span class="eyebrow">Full-stack software engineer</span>
+			<h1>Building systems that hold up in production.</h1>
+			<p class="lede">
+				I design and build web applications end-to-end — from data model to
+				deployed product — with a focus on reliability, performance, and
+				code the next engineer can actually follow.
+			</p>
+			<div class="button-row">
+				<a class="button button-primary" href="/projects">View projects</a>
+				<a class="button button-secondary" href="/contact">Get in touch</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container">
+			<SectionHeader eyebrow="Selected work" heading="Featured projects" />
+			<div class="grid">
+				{featuredProjects.map((project) => <ProjectCard project={project} />)}
+			</div>
+			<p style="margin-top:2rem;">
+				<a href="/projects">See all projects &rarr;</a>
+			</p>
+		</div>
+	</section>
+</Layout>

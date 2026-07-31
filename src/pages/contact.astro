@@ -1,0 +1,51 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+
+const contactLinks = [
+	{ label: "Email", value: "dedi@example.com", href: "mailto:dedi@example.com" },
+	{ label: "GitHub", value: "github.com/ddsuhaimi", href: "https://github.com/ddsuhaimi" },
+	{ label: "LinkedIn", value: "linkedin.com/in/dedi-suhaimi", href: "https://linkedin.com/in/dedi-suhaimi" },
+];
+---
+
+<Layout title="Contact" description="Get in touch with Dedi about freelance work or full-time roles.">
+	<section class="hero" style="padding-bottom: 1.5rem;">
+		<div class="container">
+			<span class="eyebrow">Contact</span>
+			<h1>Let's work together.</h1>
+			<p class="lede">
+				I'm currently open to freelance projects and full-time opportunities.
+				Email is the fastest way to reach me — I usually reply within a day
+				or two.
+			</p>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container">
+			<SectionHeader eyebrow="Reach out" heading="Get in touch" />
+			<div class="contact-card">
+				<div class="contact-identity">
+					<span class="avatar">D</span>
+					<div>
+						<p style="margin:0;font-weight:800;">Dedi</p>
+						<span class="status-pill">Available for work</span>
+					</div>
+				</div>
+				<ul class="contact-list">
+					{
+						contactLinks.map((link) => (
+							<li>
+								<span class="contact-label">{link.label}</span>
+								<a href={link.href} target="_blank" rel="noopener noreferrer">
+									{link.value}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+		</div>
+	</section>
+</Layout>

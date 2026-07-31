@@ -1,0 +1,138 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { projects } from "../../data/projects";
+
+export function getStaticPaths() {
+	return projects.map((project) => ({
+		params: { slug: project.slug },
+		props: { project },
+	}));
+}
+
+const { project } = Astro.props;
+const heroImage = project.image ?? project.screenshots?.[0];
+---
+
+<Layout title={project.title} description={project.summary}>
+	<section class="hero" style="padding-bottom: 1.5rem;">
+		<div class="container">
+			<a class="back-link" href="/projects">&larr; All projects</a>
+			<h1>{project.title}</h1>
+			<div class="project-meta">
+				<span class="project-category">{project.category}</span>
+				<span class="project-year">{project.year}</span>
+			</div>
+			<p class="lede">{project.summary}</p>
+			<ul class="tag-list">
+				{project.tags.map((tag) => <li class="tag">{tag}</li>)}
+			</ul>
+			{
+				project.link && (
+					<a class="button button-primary project-cta" href={project.link} target="_blank" rel="noopener noreferrer">
+						{project.linkLabel ?? "View repository"}
+					</a>
+				)
+			}
+			{
+				heroImage && (
+					<div class="lightbox-trigger" data-lightbox>
+						<img src={heroImage} alt={project.title} class="project-hero-image" />
+						<span class="lightbox-hint">
+							<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+							Click to expand
+						</span>
+					</div>
+				)
+			}
+		</div>
+	</section>
+
+	{
+		(project.intro || project.highlights) && (
+			<section class="section">
+				<div class="container">
+					<div class="section-header">
+						<span class="eyebrow">Project details</span>
+						<h2>How it works</h2>
+					</div>
+					{project.intro && <p>{project.intro}</p>}
+					{project.highlights && (
+						<div class="highlight-grid" style="margin-top: 1.5rem;">
+							{project.highlights.map((highlight) => (
+								<div class="highlight-card">
+									<h3>{highlight.title}</h3>
+									<p>{highlight.text}</p>
+								</div>
+							))}
+						</div>
+					)}
+					{project.closing && <p style="margin-top: 1.5rem;">{project.closing}</p>}
+				</div>
+			</section>
+		)
+	}
+
+	{
+		project.screenshots && project.screenshots.length > 0 && (
+			<section class="section">
+				<div class="container">
+					<div class="section-header">
+						<span class="eyebrow">Gallery</span>
+						<h2>Screenshots</h2>
+					</div>
+					<div class="screenshot-grid">
+						{project.screenshots.map((src) => (
+							<div class="lightbox-trigger" data-lightbox>
+								<img src={src} alt={`${project.title} screenshot`} class="screenshot-frame" loading="lazy" decoding="async" />
+								<span class="lightbox-hint">
+									<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+									Expand
+								</span>
+							</div>
+						))}
+					</div>
+				</div>
+			</section>
+		)
+	}
+</Layout>
+
+<script>
+	const overlay = document.createElement("div");
+	overlay.className = "lightbox-overlay";
+	overlay.innerHTML = `
+		<button class="lightbox-close" aria-label="Close">&times;</button>
+		<img class="lightbox-image" src="" alt="" />
+	`;
+	document.body.appendChild(overlay);
+
+	const lightboxImg = overlay.querySelector(".lightbox-image") as HTMLImageElement;
+	const closeBtn = overlay.querySelector(".lightbox-close") as HTMLButtonElement;
+
+	function openLightbox(src: string, alt: string) {
+		lightboxImg.src = src;
+		lightboxImg.alt = alt;
+		overlay.classList.add("is-open");
+		document.body.style.overflow = "hidden";
+	}
+
+	function closeLightbox() {
+		overlay.classList.remove("is-open");
+		document.body.style.overflow = "";
+	}
+
+	closeBtn.addEventListener("click", closeLightbox);
+	overlay.addEventListener("click", (e) => {
+		if (e.target === overlay) closeLightbox();
+	});
+	document.addEventListener("keydown", (e) => {
+		if (e.key === "Escape" && overlay.classList.contains("is-open")) closeLightbox();
+	});
+
+	document.querySelectorAll<HTMLElement>(".lightbox-trigger").forEach((trigger) => {
+		trigger.addEventListener("click", () => {
+			const img = trigger.querySelector("img");
+			if (img) openLightbox(img.src, img.alt);
+		});
+	});
+</script>

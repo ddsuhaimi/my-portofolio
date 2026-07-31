@@ -1,0 +1,29 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import { projects } from "../data/projects";
+---
+
+<Layout title="Projects" description="A selection of projects Dedi has built and shipped.">
+	<section class="hero" style="padding-bottom: 1.5rem;">
+		<div class="container">
+			<span class="eyebrow">Portfolio</span>
+			<h1>Projects</h1>
+			<p class="lede">
+				A selection of products and tools I've built, spanning frontend
+				interfaces, backend services, and everything needed to get them into
+				production.
+			</p>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container">
+			<SectionHeader eyebrow="Work" heading="All projects" />
+			<div class="grid">
+				{projects.map((project) => <ProjectCard project={project} />)}
+			</div>
+		</div>
+	</section>
+</Layout>
