@@ -5,8 +5,8 @@ import Icon from './Icon.astro';
 ---
 <section id="contact" class="contact-section" aria-labelledby="contact-heading">
   <div class="wrap contact-inner">
-    <div class="contact-top"><p>Have something worth building?</p><span>{profile.location} · Working across the stack</span></div>
-    <a class="contact-title" href={`mailto:${profile.email}`}><h2 id="contact-heading">Let’s make<br />it work beautifully.</h2><span class="contact-arrow"><Icon name="up-right" size={64} /></span></a>
+    <div class="contact-top"><p>Questions about a project?</p><span>{profile.location} · Software Engineer</span></div>
+    <a class="contact-title" href={`mailto:${profile.email}`}><h2 id="contact-heading">Send me <br />an email</h2><span class="contact-arrow"><Icon name="up-right" size={64} /></span></a>
     <div class="contact-bottom">
       <a class="email-link" href={`mailto:${profile.email}`}>{profile.email}<Icon name="up-right" /></a>
       <div class="social-links"><a href={profile.github} target="_blank" rel="noopener noreferrer">GitHub <Icon name="up-right" size={15} /></a><a href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <Icon name="up-right" size={15} /></a><a href={asset(profile.resume)} download>Résumé <Icon name="download" size={15} /></a></div>

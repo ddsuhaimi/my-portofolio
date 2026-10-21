@@ -55,7 +55,7 @@ for (const width of [320, 390, 768, 1440]) {
     await page.goto(root);
     await page.evaluate(() => document.fonts.ready);
     await expect(page.locator("h1")).toHaveText(
-      "Thoughtfulsoftware.Built to hold up.",
+      "I build web apps and APIs.",
     );
     await expect(page.locator(".project")).toHaveCount(3);
     await expect(page.locator("#experience h3")).toHaveText([
@@ -111,7 +111,7 @@ test("keyboard navigation, contact links, and project routes", async ({
   await page.keyboard.press("Enter");
   await expect(page).toHaveURL(`${root}#main`);
   await page
-    .getByRole("link", { name: "Explore my work", exact: true })
+    .getByRole("link", { name: "View my work", exact: true })
     .click();
   await expect(page).toHaveURL(`${root}#work`);
   await page

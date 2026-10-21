@@ -44,7 +44,7 @@
       "scope": "Independent follow-up on three targeted fixes, not full surface certification.",
       "corrections": ["Reserved hero stage space across breakpoints", "Removed overlapping SimRS overlay caption", "Refreshed stale documentation"],
       "recordedVerification": {
-        "staticTests": 17,
+        "staticTests": 18,
         "chromiumStories": 10,
         "liveWidthsPx": [320, 390, 768, 1440, 1920],
         "npmAuditVulnerabilities": 0,

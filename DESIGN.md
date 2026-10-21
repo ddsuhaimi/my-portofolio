@@ -92,6 +92,12 @@ The palette is warm-neutral and lightly green-cast, with product imagery supplyi
 
 **The Product Color Rule.** Let the original software and its authored showcase stage supply color; do not replace the neutral identity with a general brand gradient.
 
+## Copy and voice
+
+Use direct first-person statements and concrete product descriptions. The hero reads “I build web apps and APIs.” Dedi rejects paired marketing fragments such as the previous hero, plus inflated craftsmanship claims and vague metaphors. Keep ordinary factual paragraphs, technical terminology and resume-supported details. Apply the reviewed blader/humanizer skill when editing copy; do not just replace periods with another separator.
+
+This copy pass covers the homepage, project details, footer, metadata and authored social image. Existing colors, layouts, window treatments and motion are unchanged. The updated build passes 18 static tests (including rejected-copy regression coverage) and 10 Chromium stories; live previews were checked at 320, 390, 768, 1440 and 1920px.
+
 ## Typography
 
 **Display and Body Font:** self-hosted Geist Latin variable sans, with sans-serif fallback.
