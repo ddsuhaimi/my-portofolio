@@ -1,39 +1,72 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import SectionHeader from "../components/SectionHeader.astro";
-import ProjectCard from "../components/ProjectCard.astro";
-import { projects } from "../data/projects";
-import { route } from "../lib/paths";
-
-const featuredProjects = projects.slice(0, 3);
+import Layout from '../layouts/Layout.astro';
+import Window from '../components/Window.astro';
+import Icon from '../components/Icon.astro';
+import Contact from '../components/Contact.astro';
+import { projects } from '../data/projects';
+import { profile, expertise, experience } from '../data/portfolio';
+import { projectImages } from '../data/images';
+import { route, asset } from '../lib/paths';
+function projectBySlug(slug: string) {
+  const project = projects.find(project => project.slug === slug);
+  if (!project) throw new Error(`Missing portfolio project: ${slug}`);
+  return project;
+}
+const jago = projectBySlug('jagoasn');
+const chrommandr = projectBySlug('chrommandr');
+const simrs = projectBySlug('simrs');
 ---
+<Layout>
+  <section class="hero wrap" aria-labelledby="hero-heading">
+    <div class="hero-status"><span class="status-dot" aria-hidden="true"></span><span>{profile.title}</span><span class="hero-location">{profile.location}</span></div>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <h1 id="hero-heading">Thoughtful<br />software.<br /><span>Built to hold up.</span></h1>
+        <p class="hero-intro">{profile.introduction}</p>
+        <div class="hero-actions"><a class="button button-primary" href="#work">Explore my work <Icon name="down" size={17} /></a><a class="text-link" href="#contact">Get in touch <Icon name="up-right" size={17} /></a></div>
+      </div>
+      <div class="hero-showcase">
+        <div class="hero-rail"><span>Interface ↔ System</span><span>Selected work / 2024</span></div>
+        <div class="hero-stage">
+          <a class="hero-back" href={route('/projects/simrs/')} aria-label="Explore SimRS hospital management system"><Window image={projectImages.simrs.hero} label="SimRS / Hospital operations" alt="SimRS hospital management dashboard" priority /></a>
+          <a class="hero-front" href={route('/projects/jagoasn/')} aria-label="Explore JagoASN exam preparation platform"><Window image={projectImages.jagoasn.hero} label="JagoASN / Exam preparation" alt="JagoASN civil service exam preparation website" priority /></a>
+          <div class="hero-caption"><span class="caption-line" aria-hidden="true"></span><p>Real workflows.<br />Considered from end to end.</p><Icon name="up-right" size={20} /></div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-bottom"><span>Interfaces with clarity. Systems with staying power.</span><a href="#work">A closer look <Icon name="down" size={15} /></a></div>
+  </section>
 
-<Layout title="Home" description="Dedi — Full-Stack Software Engineer building reliable, scalable web applications.">
-	<section class="hero">
-		<div class="container">
-			<span class="eyebrow">Full-stack software engineer</span>
-			<h1>Building systems that hold up in production.</h1>
-			<p class="lede">
-				I design and build web applications end-to-end — from data model to
-				deployed product — with a focus on reliability, performance, and
-				code the next engineer can actually follow.
-			</p>
-			<div class="button-row">
-				<a class="button button-primary" href={route("/projects")}>View projects</a>
-				<a class="button button-secondary" href={route("/contact")}>Get in touch</a>
-			</div>
-		</div>
-	</section>
+  <section id="work" class="work-section wrap" aria-labelledby="work-heading">
+    <div class="section-heading"><h2 id="work-heading">Selected work<span class="small-count">(3)</span></h2><p>Different problems.<br />The same attention to detail.</p></div>
+    <article class="project project-jago">
+      <a class="project-visual jago-scene" href={route(`/projects/${jago.slug}/`)} aria-label="Explore JagoASN project">
+        <div class="scene-label"><span>JagoASN</span><span>Learning, with direction.</span></div>
+        <div class="jago-main"><Window image={projectImages.jagoasn.hero} label="jagoasn.com" alt="JagoASN landing page with exam preparation introduction" /></div>
+        <div class="jago-inset"><Window image={projectImages.jagoasn.gallery[2].image} label="Practice / Try out" alt="JagoASN timed practice exam with question navigation" /></div>
+        <span class="scene-caption">From the first practice to exam day.</span><span class="visual-action"><Icon name="up-right" size={24} /></span>
+      </a>
+      <div class="project-info"><div><div class="project-meta"><span>{jago.category}</span><span>{jago.year}</span></div><a class="project-title" href={route(`/projects/${jago.slug}/`)}><h3>{jago.title}</h3><Icon name="up-right" size={25} /></a><p>{jago.summary}</p></div><div class="project-tools"><span>{jago.role}</span><p>{jago.tags.join(' · ')}</p><a class="text-link" href={route(`/projects/${jago.slug}/`)}>Explore project <Icon name="right" size={17} /></a></div></div>
+    </article>
 
-	<section class="section">
-		<div class="container">
-			<SectionHeader eyebrow="Selected work" heading="Featured projects" />
-			<div class="grid">
-				{featuredProjects.map((project) => <ProjectCard project={project} />)}
-			</div>
-			<p style="margin-top:2rem;">
-				<a href={route("/projects")}>See all projects &rarr;</a>
-			</p>
-		</div>
-	</section>
+    <article class="project project-chrommandr">
+      <div class="chrommandr-copy"><div class="project-meta"><span>{chrommandr.category}</span><span>{chrommandr.year}</span></div><h3>A shorter path<br />to your next action.</h3><a class="project-title" href={route(`/projects/${chrommandr.slug}/`)}><span>{chrommandr.title}</span><Icon name="up-right" size={22} /></a><p>{chrommandr.summary}</p><div class="project-tools"><span>{chrommandr.role}</span><p>{chrommandr.tags.join(' · ')}</p></div><a class="text-link" href={route(`/projects/${chrommandr.slug}/`)}>Explore project <Icon name="right" size={17} /></a></div>
+      <a class="project-visual command-scene" href={route(`/projects/${chrommandr.slug}/`)} aria-label="Explore Chrommandr project"><div class="scene-label"><span>Chrommandr</span><span>Browser utility</span></div><div class="command-window"><Window image={projectImages.chrommandr.hero} label="Chrommandr / Command palette" alt="Original Chrommandr command palette with Open Settings, Open New Tab, and Clear History actions" /></div><div class="command-caption"><span>One palette.<br />Your browser, within reach.</span><span class="visual-action"><Icon name="up-right" size={24} /></span></div></a>
+    </article>
+
+    <article class="project project-simrs">
+      <a class="project-visual simrs-scene" href={route(`/projects/${simrs.slug}/`)} aria-label="Explore SimRS project"><div class="scene-label"><span>SimRS</span><span>Complexity, brought together.</span></div><div class="simrs-main"><Window image={projectImages.simrs.hero} label="SimRS / Hospital management" alt="SimRS main dashboard with patient, registration, visit and revenue summaries" /></div><div class="simrs-detail"><Window image={projectImages.simrs.gallery[0].image} label="Registration / Workflow" alt="SimRS registration controls; patient rows excluded from the image" /></div><span class="visual-action"><Icon name="up-right" size={24} /></span></a>
+      <div class="project-info"><div><div class="project-meta"><span>{simrs.category}</span><span>{simrs.year}</span></div><a class="project-title" href={route(`/projects/${simrs.slug}/`)}><h3>{simrs.title}</h3><Icon name="up-right" size={25} /></a><p>{simrs.summary}</p></div><div class="project-tools"><span>{simrs.role}</span><p>{simrs.tags.join(' · ')}</p><a class="text-link" href={route(`/projects/${simrs.slug}/`)}>Explore project <Icon name="right" size={17} /></a></div></div>
+    </article>
+  </section>
+
+  <section id="about" class="about-section wrap" aria-labelledby="about-heading">
+    <div class="about-heading"><h2 id="about-heading">Good software <br />starts with <br /><span>good questions.</span></h2><div class="about-signature"><span class="signature-mark" aria-hidden="true">ds.</span><span>{profile.name}<br /><span class="muted">{profile.title} · {profile.location}</span></span></div></div>
+    <div class="about-copy"><p class="large-copy">{profile.approach}</p><p>{profile.background}</p><p>My work spans exam preparation, browser tools, and hospital systems. Different contexts, but a shared challenge: making complex processes easier to navigate.</p><div class="education"><span class="meta-label">Education</span><h3>{profile.education.degree}</h3><p>{profile.education.institution}<br />{profile.education.focus} · {profile.education.date}</p></div><a class="text-link" href={asset(profile.resume)} download>Download résumé <Icon name="download" size={17} /></a></div>
+  </section>
+
+  <section class="expertise-section wrap" aria-labelledby="expertise-heading"><div class="section-heading"><h2 id="expertise-heading">Across the stack.</h2><p>The interface is only<br />part of the story.</p></div><div class="expertise-list">{expertise.map(group => <article class="expertise-row"><h3>{group.title}</h3><p>{group.description}</p><ul>{group.tools.map(tool => <li>{tool}</li>)}</ul></article>)}</div></section>
+
+  <section id="experience" class="experience-section wrap" aria-labelledby="experience-heading"><div class="section-heading"><h2 id="experience-heading">Experience.</h2><a class="text-link" href={asset(profile.resume)} download>Full résumé <Icon name="download" size={17} /></a></div><div class="timeline">{experience.map((job) => <article class="experience-row"><div class="experience-date"><span>{job.period}</span>{job.arrangement && <span class="arrangement">{job.arrangement}</span>}</div><div class="experience-description"><h3>{job.company}</h3><p class="experience-role">{job.role}</p><p>{job.description}</p></div></article>)}</div><p class="source-note">{profile.sourceNote}</p></section>
+  <Contact />
 </Layout>

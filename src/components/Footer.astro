@@ -1,10 +1,10 @@
 ---
-const year = new Date().getFullYear();
+import { profile } from '../data/portfolio';
+import { route } from '../lib/paths';
+import Icon from './Icon.astro';
 ---
-
-<footer class="site-footer">
-	<div class="container">
-		<span>© {year} Dedi</span>
-		<span>Built with Astro</span>
-	</div>
+<footer class="site-footer wrap">
+  <a class="footer-name" href={route('/')}>{profile.name}<span>{profile.title} · {profile.location}</span></a>
+  <p>Thoughtfully built with Astro.</p>
+  <a href="#top">Back to top <Icon name="up-right" size={15} /></a>
 </footer>

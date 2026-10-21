@@ -1,139 +1,28 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import { projects } from "../../data/projects";
-import { asset, route } from "../../lib/paths";
-
-export function getStaticPaths() {
-	return projects.map((project) => ({
-		params: { slug: project.slug },
-		props: { project },
-	}));
-}
-
+import type { GetStaticPaths } from 'astro';
+import { Image } from 'astro:assets';
+import Layout from '../../layouts/Layout.astro';
+import Window from '../../components/Window.astro';
+import Icon from '../../components/Icon.astro';
+import Contact from '../../components/Contact.astro';
+import { projects } from '../../data/projects';
+import { profile } from '../../data/portfolio';
+import { projectImages } from '../../data/images';
+import { route } from '../../lib/paths';
+export const getStaticPaths = (() => projects.map(project => ({ params: { slug: project.slug }, props: { project } }))) satisfies GetStaticPaths;
 const { project } = Astro.props;
-const heroImage = project.image ?? project.screenshots?.[0];
+const images = projectImages[project.slug];
+const next = projects[(projects.findIndex(item => item.slug === project.slug) + 1) % projects.length];
 ---
-
-<Layout title={project.title} description={project.summary}>
-	<section class="hero" style="padding-bottom: 1.5rem;">
-		<div class="container">
-			<a class="back-link" href={route("/projects")}>&larr; All projects</a>
-			<h1>{project.title}</h1>
-			<div class="project-meta">
-				<span class="project-category">{project.category}</span>
-				<span class="project-year">{project.year}</span>
-			</div>
-			<p class="lede">{project.summary}</p>
-			<ul class="tag-list">
-				{project.tags.map((tag) => <li class="tag">{tag}</li>)}
-			</ul>
-			{
-				project.link && (
-					<a class="button button-primary project-cta" href={project.link} target="_blank" rel="noopener noreferrer">
-						{project.linkLabel ?? "View repository"}
-					</a>
-				)
-			}
-			{
-				heroImage && (
-					<div class="lightbox-trigger" data-lightbox>
-						<img src={asset(heroImage)} alt={project.title} class="project-hero-image" />
-						<span class="lightbox-hint">
-							<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
-							Click to expand
-						</span>
-					</div>
-				)
-			}
-		</div>
-	</section>
-
-	{
-		(project.intro || project.highlights) && (
-			<section class="section">
-				<div class="container">
-					<div class="section-header">
-						<span class="eyebrow">Project details</span>
-						<h2>How it works</h2>
-					</div>
-					{project.intro && <p>{project.intro}</p>}
-					{project.highlights && (
-						<div class="highlight-grid" style="margin-top: 1.5rem;">
-							{project.highlights.map((highlight) => (
-								<div class="highlight-card">
-									<h3>{highlight.title}</h3>
-									<p>{highlight.text}</p>
-								</div>
-							))}
-						</div>
-					)}
-					{project.closing && <p style="margin-top: 1.5rem;">{project.closing}</p>}
-				</div>
-			</section>
-		)
-	}
-
-	{
-		project.screenshots && project.screenshots.length > 0 && (
-			<section class="section">
-				<div class="container">
-					<div class="section-header">
-						<span class="eyebrow">Gallery</span>
-						<h2>Screenshots</h2>
-					</div>
-					<div class="screenshot-grid">
-						{project.screenshots.map((src) => (
-							<div class="lightbox-trigger" data-lightbox>
-								<img src={asset(src)} alt={`${project.title} screenshot`} class="screenshot-frame" loading="lazy" decoding="async" />
-								<span class="lightbox-hint">
-									<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
-									Expand
-								</span>
-							</div>
-						))}
-					</div>
-				</div>
-			</section>
-		)
-	}
+<Layout title={`${project.title} — ${profile.name}`} description={project.summary}>
+  <div class="detail-page wrap">
+    <a class="text-link back-link" href={route('/#work')}><Icon name="down" size={16} /> Back to selected work</a>
+    <header class="detail-heading"><div class="project-meta"><span>{project.category}</span><span>{project.year}</span></div><h1>{project.title}</h1><p>{project.summary}</p><div class="detail-tags"><span>{project.role}</span>{project.tags.map(tag => <span>{tag}</span>)}</div>{project.link && <a class="button button-primary" href={project.link} target="_blank" rel="noopener noreferrer">{project.linkLabel} <Icon name="up-right" /></a>}</header>
+    <div class:list={['detail-hero', `detail-${project.slug}`]}><Window image={images.hero} label={`${project.title} / Overview`} alt={`${project.title} original product interface`} priority /></div>
+    <section class="detail-overview"><h2>Inside the project.</h2><div><p class="large-copy">{project.intro}</p><p>{project.closing}</p>{project.slug === 'simrs' && <p class="privacy-note">The supplied screenshots contain names and medical-record identifiers. Published images are cropped to exclude patient records and the activity feed. No patient-level information is included.</p>}</div></section>
+    <section class="detail-features" aria-labelledby="features-title"><h2 id="features-title">What it brings together.</h2><div>{project.highlights?.map(highlight => <article><h3>{highlight.title}</h3><p>{highlight.text}</p></article>)}</div></section>
+    <section class="detail-gallery" aria-labelledby="gallery-title"><h2 id="gallery-title">A closer look.</h2>{images.gallery.map((item) => <figure><a href={item.image.src} target="_blank" rel="noopener noreferrer" aria-label={`Open full image: ${item.alt}`}><Image src={item.image} alt={item.alt} widths={[600, 1000, 1400]} sizes="(max-width: 700px) 92vw, 85vw" format="webp" quality={88} loading="lazy" /></a><figcaption>{item.caption}<span>Open full image <Icon name="up-right" size={14} /></span></figcaption></figure>)}</section>
+    <a class="next-project" href={route(`/projects/${next.slug}/`)}><span>Next project</span><h2>{next.title}</h2><Icon name="up-right" size={44} /></a>
+  </div>
+  <Contact />
 </Layout>
-
-<script>
-	const overlay = document.createElement("div");
-	overlay.className = "lightbox-overlay";
-	overlay.innerHTML = `
-		<button class="lightbox-close" aria-label="Close">&times;</button>
-		<img class="lightbox-image" src="" alt="" />
-	`;
-	document.body.appendChild(overlay);
-
-	const lightboxImg = overlay.querySelector(".lightbox-image") as HTMLImageElement;
-	const closeBtn = overlay.querySelector(".lightbox-close") as HTMLButtonElement;
-
-	function openLightbox(src: string, alt: string) {
-		lightboxImg.src = src;
-		lightboxImg.alt = alt;
-		overlay.classList.add("is-open");
-		document.body.style.overflow = "hidden";
-	}
-
-	function closeLightbox() {
-		overlay.classList.remove("is-open");
-		document.body.style.overflow = "";
-	}
-
-	closeBtn.addEventListener("click", closeLightbox);
-	overlay.addEventListener("click", (e) => {
-		if (e.target === overlay) closeLightbox();
-	});
-	document.addEventListener("keydown", (e) => {
-		if (e.key === "Escape" && overlay.classList.contains("is-open")) closeLightbox();
-	});
-
-	document.querySelectorAll<HTMLElement>(".lightbox-trigger").forEach((trigger) => {
-		trigger.addEventListener("click", () => {
-			const img = trigger.querySelector("img");
-			if (img) openLightbox(img.src, img.alt);
-		});
-	});
-</script>

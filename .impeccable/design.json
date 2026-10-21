@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-21T18:19:42Z",
+  "title": "Design System: Dedi Suhaimi — Precision studio",
+  "extensions": {
+    "colorMeta": {
+      "paper": { "role": "neutral", "displayName": "Paper" },
+      "ink": { "role": "neutral", "displayName": "Graphite Ink" },
+      "muted": { "role": "neutral", "displayName": "Secondary Graphite" },
+      "line": { "role": "neutral", "displayName": "Hairline" },
+      "blue": { "role": "primary", "displayName": "Restrained Blue" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Hero Display", "purpose": "Default desktop homepage heading; responsive rules override it." },
+      "headline": { "displayName": "Section Headline", "purpose": "Default desktop section heading; responsive rules override it." },
+      "body": { "displayName": "Supporting Body", "purpose": "Project and about descriptions; not a universal body-size declaration." },
+      "label": { "displayName": "Interface Annotation", "purpose": "Default hero rail; toolbar and date metadata use distinct mono sizes." }
+    },
+    "shadows": [
+      { "name": "navigation", "value": "0 4px 6px #1f242403, 0 10px 30px #1f24240a, inset 0 0 0 1px #dedfd980", "purpose": "Floating translucent navigation." },
+      { "name": "button-primary", "value": "inset 0 1px #ffffff20, 0 3px 5px #1418140b, 0 6px 12px #1418140b", "purpose": "Primary action at rest." },
+      { "name": "button-primary-hover", "value": "inset 0 1px #ffffff20, 0 6px 13px #14181420", "purpose": "Primary action hover lift." },
+      { "name": "software-window", "value": "0 2px 3px #20282005, 0 15px 32px -12px #20282030, 0 45px 60px -30px #20282038, inset 0 1px #fff", "purpose": "Directional depth around real interface screenshots." }
+    ],
+    "motion": [
+      { "name": "ease", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Shared authored easing from --ease." },
+      { "name": "headline-in", "value": "0.85s var(--ease) both", "purpose": "Opening heading; only without reduced-motion preference." },
+      { "name": "showcase-in", "value": "1.2s 0.1s var(--ease) both", "purpose": "Opening software showcase; only without reduced-motion preference." }
+    ],
+    "breakpoints": [
+      { "name": "small-mobile-max", "value": "360px" },
+      { "name": "mobile-max", "value": "540px" },
+      { "name": "tablet-max", "value": "800px" },
+      { "name": "compact-desktop-max", "value": "1100px" },
+      { "name": "wide-min", "value": "1600px" }
+    ],
+    "heroStage": {
+      "source": "src/styles/global.css",
+      "heights": { "default": "530px", "max1100": "450px", "max800": "510px", "max540": "350px", "max360": "300px", "min1600": "530px" },
+      "purpose": "Reserve space for the transformed windows, separate caption, and following bottom rail. Browser geometry assertions protect clearance."
+    },
+    "review": {
+      "verdict": "SHIP — reviewer scored tablet hero collision, overlapping captions, and stale documentation resolved; targeted verdict scope only.",
+      "scope": "Independent follow-up on three targeted fixes, not full surface certification.",
+      "corrections": ["Reserved hero stage space across breakpoints", "Removed overlapping SimRS overlay caption", "Refreshed stale documentation"],
+      "recordedVerification": {
+        "staticTests": 17,
+        "chromiumStories": 10,
+        "liveWidthsPx": [320, 390, 768, 1440, 1920],
+        "npmAuditVulnerabilities": 0,
+        "initialLocalhostLighthouse": { "performance": 100, "accessibility": 100, "bestPractices": 100, "seo": 100 },
+        "finalHttpTailscaleLighthouse": { "performance": 100, "accessibility": 100, "bestPractices": 78, "seo": 100 },
+        "bestPracticesFailures": "Missing HTTPS and HTTP-to-HTTPS redirect only on the private HTTP preview.",
+        "limitations": "Existing recorded results, not rerun in this documentation pass. Synthetic lab scores are not field measurements or comprehensive accessibility certification. Private preview is not public production deployment."
+      }
+    }
+  },
+  "components": [
+    {
+      "name": "Primary Action",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Dark tactile link action; desktop style with implemented mobile and reduced-motion overrides.",
+      "html": "<a class=\"ds-button-primary\" href=\"#work\">Explore my work <svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M12 5v14m-7-7 7 7 7-7\"/></svg></a>",
+      "css": ".ds-button-primary{display:inline-flex;align-items:center;justify-content:center;gap:25px;font-family:var(--font-sans);font-size:13px;min-height:48px;padding:14px 20px;border:1px solid #383c36;border-radius:8px;background:#292c28;color:#fff;text-decoration:none;box-shadow:inset 0 1px #ffffff20,0 3px 5px #1418140b,0 6px 12px #1418140b;transition:transform .2s var(--ease),box-shadow .2s,background .2s}.ds-button-primary:hover{transform:translateY(-2px);background:#3b4038;box-shadow:inset 0 1px #ffffff20,0 6px 13px #14181420}.ds-button-primary:focus-visible{outline:2px solid var(--blue);outline-offset:6px;border-radius:3px}@media(max-width:540px){.ds-button-primary{min-height:46px;padding:12px 15px;gap:17px;font-size:12px}}@media(prefers-reduced-motion:reduce){.ds-button-primary{transition:none}}"
+    },
+    {
+      "name": "Navigation Contact",
+      "kind": "button",
+      "refersTo": "navigation-contact",
+      "description": "White bordered contact link in the floating navigation.",
+      "html": "<a class=\"ds-nav-contact\" href=\"#contact\">Let’s talk <svg width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M7 17 17 7M7 7h10v10\"/></svg></a>",
+      "css": ".ds-nav-contact{display:flex;align-items:center;gap:20px;border:1px solid #ddded9;box-shadow:0 2px 3px #17171704,inset 0 1px #fff;padding:11px 15px;font-family:var(--font-sans);font-size:12px;border-radius:8px;background:#fff;color:var(--ink);text-decoration:none;transition:background .2s,box-shadow .2s}.ds-nav-contact:hover{background:#f0f2ee;box-shadow:0 3px 7px #1717170c}.ds-nav-contact:focus-visible{outline:2px solid var(--blue);outline-offset:6px;border-radius:3px}@media(max-width:540px){.ds-nav-contact{padding:9px 10px;gap:8px;font-size:11px;border-radius:6px}}@media(max-width:360px){.ds-nav-contact{font-size:10px;gap:4px;padding:8px}}@media(prefers-reduced-motion:reduce){.ds-nav-contact{transition:none}}"
+    },
+    {
+      "name": "Text Link",
+      "kind": "custom",
+      "description": "Open secondary action without a competing filled surface.",
+      "html": "<a class=\"ds-text-link\" href=\"#contact\">Get in touch <svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M7 17 17 7M7 7h10v10\"/></svg></a>",
+      "css": ".ds-text-link{display:inline-flex;align-items:center;gap:14px;font-family:var(--font-sans);font-size:13px;font-weight:500;width:fit-content;color:var(--ink);text-decoration:none}.ds-text-link:hover{color:var(--blue)}.ds-text-link svg{flex-shrink:0;transition:transform .25s var(--ease)}.ds-text-link:hover svg{transform:translate(2px,-2px)}.ds-text-link:focus-visible{outline:2px solid var(--blue);outline-offset:6px;border-radius:3px}@media(max-width:540px){.ds-text-link{font-size:12px;gap:10px}}@media(prefers-reduced-motion:reduce){.ds-text-link svg{transition:none}}"
+    },
+    {
+      "name": "Navigation Links",
+      "kind": "nav",
+      "description": "The persistent Work, About, and Experience link group; no hamburger or scroll-spy state.",
+      "html": "<nav class=\"ds-nav-links\" aria-label=\"Portfolio sections\"><a href=\"#work\">Work</a><a href=\"#about\">About</a><a href=\"#experience\">Experience</a></nav>",
+      "css": ".ds-nav-links{display:flex;gap:27px;font-family:var(--font-sans);font-size:13px;color:var(--ink)}.ds-nav-links>a{position:relative;color:inherit;text-decoration:none;transition:color .2s}.ds-nav-links>a:hover{color:var(--blue)}.ds-nav-links>a:after{position:absolute;content:'';height:1px;bottom:-5px;left:0;width:100%;background:var(--blue);transform:scaleX(0);transform-origin:left;transition:transform .25s var(--ease)}.ds-nav-links>a:hover:after{transform:scaleX(1)}.ds-nav-links>a:focus-visible{outline:2px solid var(--blue);outline-offset:6px;border-radius:3px}@media(max-width:800px){.ds-nav-links{gap:20px;font-size:12px}}@media(max-width:540px){.ds-nav-links{gap:15px;font-size:11px}}@media(max-width:360px){.ds-nav-links{gap:11px;font-size:10px}}@media(prefers-reduced-motion:reduce){.ds-nav-links>a,.ds-nav-links>a:after{transition:none}}"
+    },
+    {
+      "name": "Software Window Chrome",
+      "kind": "custom",
+      "refersTo": "software-window",
+      "description": "Actual frame and toolbar primitive, shown without screenshot content; production Window renders reviewed Astro imagery below this bar. It is not itself an interactive control.",
+      "html": "<div class=\"ds-software-window\"><div class=\"ds-window-bar\"><span class=\"ds-window-controls\" aria-hidden=\"true\"><i></i><i></i><i></i></span><span>JagoASN / Exam preparation</span><span class=\"ds-window-end\" aria-hidden=\"true\"></span></div></div>",
+      "css": ".ds-software-window{overflow:hidden;background:#fff;border:1px solid #b2b7ae;border-radius:8px;box-shadow:0 2px 3px #20282005,0 15px 32px -12px #20282030,0 45px 60px -30px #20282038,inset 0 1px #fff;transform:translateZ(0)}.ds-window-bar{position:relative;display:flex;justify-content:space-between;align-items:center;gap:8px;height:29px;background:linear-gradient(#fff,#f0f1ee);border-bottom:1px solid #d9ddd4;padding-inline:11px;font-size:9px;color:#64695e;letter-spacing:.01em;font-family:var(--font-mono);white-space:nowrap}.ds-window-controls{display:flex;gap:4px;flex:0 0 30px}.ds-window-controls i{width:5px;height:5px;display:block;border:1px solid #b8beb0;border-radius:50%;background:#e0e4da}.ds-window-end{width:30px}@media(max-width:540px){.ds-software-window{border-radius:5px}.ds-window-bar{height:23px;padding-inline:8px;font-size:7px}.ds-window-controls{gap:3px;flex-basis:22px}.ds-window-controls i{width:4px;height:4px}.ds-window-end{width:22px}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Precision studio",
+    "overview": "Software is presented as the product of considered engineering. The opening balances a deliberately oversized, left-aligned statement with overlapping windows drawn from the actual JagoASN and SimRS interfaces. The front window has a fine graphite edge, an inset toolbar, and a directional shadow. The second window establishes depth and makes the breadth of the work visible before scrolling. The page progresses from tangible work to engineering approach, capabilities, résumé-sourced experience, and a graphite contact close.\n\nThe neutral light direction and Geist typography are explicit brief requirements. They take precedence over generic style-detector objections to neutral palettes or popular fonts. The specificity comes from the actual software, the window treatments, and the alternating scale and rhythm of the work.",
+    "keyCharacteristics": [
+      "Real software imagery supplies the visual proof.",
+      "Neutral light surfaces, precise Geist typography, and restrained blue accents.",
+      "Tangible framed windows and distinct editorial project arrangements.",
+      "Static-first content with progressive, reduced-motion-aware enhancement."
+    ],
+    "rules": [
+      { "name": "The Product Color Rule", "body": "Let the original software and its authored showcase stage supply color; do not replace the neutral identity with a general brand gradient.", "section": "colors" },
+      { "name": "The Framed Evidence Rule", "body": "Use depth to stage real interfaces and clarify interaction, not as a substitute for content. Exact navigation, button, and window shadows are recorded in `.impeccable/design.json` from the implemented CSS.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do preserve the neutral light identity and self-hosted Geist typography.",
+      "Do use real, privacy-reviewed project imagery as visual evidence.",
+      "Do reserve space for transformed artwork, captions, and the following rail at each breakpoint.",
+      "Do keep keyboard focus, reduced-motion behavior, and no-JavaScript navigation intact."
+    ],
+    "donts": [
+      "Don't flatten the three project arrangements into identical cards.",
+      "Don't restore the overlapping SimRS overlay caption.",
+      "Don't invent career claims, availability, metrics, or unreviewed image content.",
+      "Don't describe the targeted SHIP verdict or local lab scores as full certification or public production deployment."
+    ]
+  }
+}

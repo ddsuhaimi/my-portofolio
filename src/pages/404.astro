@@ -1,0 +1,7 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { route } from '../lib/paths';
+import Icon from '../components/Icon.astro';
+import { profile } from '../data/portfolio';
+---
+<Layout title={`Page not found — ${profile.name}`}><section class="not-found wrap"><p>404 / Page not found</p><h1>This path doesn’t<br />lead anywhere.</h1><p>The page may have moved. The selected work is a good place to start.</p><a class="button button-primary" href={route('/#work')}>Explore the work <Icon name="right" /></a></section></Layout>

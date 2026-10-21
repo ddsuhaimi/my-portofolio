@@ -1,0 +1,8 @@
+---
+import { ArrowUpRight, ArrowDown, ArrowRight, Download } from '@lucide/astro';
+interface Props { name: 'up-right' | 'down' | 'right' | 'download'; size?: number; }
+const { name, size = 18 } = Astro.props;
+const icons = { 'up-right': ArrowUpRight, down: ArrowDown, right: ArrowRight, download: Download };
+const Glyph = icons[name];
+---
+<Glyph size={size} stroke-width={1.6} aria-hidden="true" />
