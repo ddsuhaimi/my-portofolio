@@ -1,0 +1,134 @@
+{
+  "version": 1,
+  "policy": "Originals are retained outside public and src. Only privacy-reviewed derivatives are imported. No claim is made that source patient data is fictitious.",
+  "assets": [
+    {
+      "name": "chrommandr-1.jpg",
+      "source": "provenance/originals/chrommandr-1.jpg",
+      "sourceRepository": "https://github.com/ddsuhaimi/my-portofolio",
+      "sourceSha256": "d36a8ccd8371cb6bdd35ca25e7d88b7b4899aad296b84186b25d940e2fde5156",
+      "publishedSource": "src/assets/projects/chrommandr-1.jpg",
+      "publishedSha256": "92733f56920ae223f734653b5897eb5c345820266931701fac53fe1321e87793",
+      "transform": {
+        "crop": {
+          "left": 207,
+          "top": 74,
+          "width": 850,
+          "height": 245
+        }
+      },
+      "privacyReview": "Browser chrome, tabs, address bar and desktop UI excluded."
+    },
+    {
+      "name": "chrommandr-screenshot.jpg",
+      "source": "provenance/originals/chrommandr-screenshot.jpg",
+      "sourceRepository": "https://github.com/ddsuhaimi/my-portofolio",
+      "sourceSha256": "7f87352fd98eb4e1c842b944f95830891b38d7c2a9e82613f36d6f7212691176",
+      "publishedSource": "src/assets/projects/chrommandr-screenshot.jpg",
+      "publishedSha256": "6692a50d46b24a08a9c7c835e9f4bd08aaafe76d00ab090ba572c800b6b42733",
+      "transform": {
+        "crop": {
+          "left": 205,
+          "top": 74,
+          "width": 880,
+          "height": 260
+        }
+      },
+      "privacyReview": "Browser chrome, tabs, address bar and desktop UI excluded."
+    },
+    {
+      "name": "jagoasn-1.jpg",
+      "source": "provenance/originals/jagoasn-1.jpg",
+      "sourceRepository": "https://github.com/ddsuhaimi/my-portofolio",
+      "sourceSha256": "3b16213ef768d0227a64f4aaad0628f61efdb17809a37ba8e4f44ba4876c6978",
+      "publishedSource": "src/assets/projects/jagoasn-1.jpg",
+      "publishedSha256": "0206dda92b6bc8b83cd98e78d04837907db2f3cab31f6290eee8bb508632a2c3",
+      "transform": "Metadata stripped, JPEG re-encoded",
+      "privacyReview": "Project UI; no contact, patient, or account identifiers visible. Account display name Dedi belongs to the portfolio owner."
+    },
+    {
+      "name": "jagoasn-2.jpg",
+      "source": "provenance/originals/jagoasn-2.jpg",
+      "sourceRepository": "https://github.com/ddsuhaimi/my-portofolio",
+      "sourceSha256": "319c479e399d97d013e929a9c4a1f27424272ac12c0550d8bbb7e9d2e9e6b47d",
+      "publishedSource": "src/assets/projects/jagoasn-2.jpg",
+      "publishedSha256": "09aea4ef1fa400aeda50b5146d23fbc590898b260d5c9483c353ca911cf877d6",
+      "transform": "Metadata stripped, JPEG re-encoded",
+      "privacyReview": "Project UI; no contact, patient, or account identifiers visible. Account display name Dedi belongs to the portfolio owner."
+    },
+    {
+      "name": "jagoasn-3.jpg",
+      "source": "provenance/originals/jagoasn-3.jpg",
+      "sourceRepository": "https://github.com/ddsuhaimi/my-portofolio",
+      "sourceSha256": "58e5c92f2bec37f38c49f8c3c05a0862d8b3731fd4bb357ae99712abbda5dca0",
+      "publishedSource": "src/assets/projects/jagoasn-3.jpg",
+      "publishedSha256": "27e4458856c8ed5749b794a7e38752d4c3704a0bf81665dbdbb181d549c0030a",
+      "transform": "Metadata stripped, JPEG re-encoded",
+      "privacyReview": "Project UI; no contact, patient, or account identifiers visible. Account display name Dedi belongs to the portfolio owner."
+    },
+    {
+      "name": "jagoasn-4.jpg",
+      "source": "provenance/originals/jagoasn-4.jpg",
+      "sourceRepository": "https://github.com/ddsuhaimi/my-portofolio",
+      "sourceSha256": "ef7f8ddcffee25dcd7af8de8ec33b7116e45cdb28a4d2cc9498de0f78ad1ac9a",
+      "publishedSource": "src/assets/projects/jagoasn-4.jpg",
+      "publishedSha256": "b9359ad4a802e9628ce107476895fb538ac14db42ec94b7ca56687745b900985",
+      "transform": "Metadata stripped, JPEG re-encoded",
+      "privacyReview": "Project UI; no contact, patient, or account identifiers visible. Account display name Dedi belongs to the portfolio owner."
+    },
+    {
+      "name": "jagoasn-screenshot.jpg",
+      "source": "provenance/originals/jagoasn-screenshot.jpg",
+      "sourceRepository": "https://github.com/ddsuhaimi/my-portofolio",
+      "sourceSha256": "5b880e13f5279ac2e58867dd283ff5f982f208085e6f317d34ab889aa8864674",
+      "publishedSource": "src/assets/projects/jagoasn-screenshot.jpg",
+      "publishedSha256": "7a003582b8f66dab38b9f6feeb9881ef0ddd14bec13562f416e77d32ee13a193",
+      "transform": "Metadata stripped, JPEG re-encoded",
+      "privacyReview": "Project UI; no contact, patient, or account identifiers visible. Account display name Dedi belongs to the portfolio owner."
+    },
+    {
+      "name": "simrs-1.jpg",
+      "source": "provenance/originals/simrs-1.jpg",
+      "sourceRepository": "https://github.com/ddsuhaimi/my-portofolio",
+      "sourceSha256": "47db30cf7c464da9c0348a5f202451a6f08f2eaa0f6747fad07be56f9ac73112",
+      "publishedSource": "src/assets/projects/simrs-1.jpg",
+      "publishedSha256": "af9d46e8c125309c51f6272a551ab801d41a08d6549fe3f40dfa51bc5feffc79",
+      "transform": {
+        "crop": {
+          "left": 0,
+          "top": 0,
+          "width": 1400,
+          "height": 553
+        }
+      },
+      "privacyReview": "Patient table and header excluded."
+    },
+    {
+      "name": "simrs-2.jpg",
+      "source": "provenance/originals/simrs-2.jpg",
+      "sourceRepository": "https://github.com/ddsuhaimi/my-portofolio",
+      "sourceSha256": "786fc51a43404652ff10008ca832e6d1a512d750d23d16d297bb1b2e9058872a",
+      "publishedSource": "src/assets/projects/simrs-2.jpg",
+      "publishedSha256": "f0612c0d408aa49ba444018d3c2a56ebdbfff6202ebc2a0de6b451192e4a5f36",
+      "transform": {
+        "crop": {
+          "left": 0,
+          "top": 0,
+          "width": 1400,
+          "height": 1200
+        }
+      },
+      "privacyReview": "Patient activity feed excluded."
+    },
+    {
+      "name": "simrs-screenshot.jpg",
+      "source": "provenance/originals/simrs-screenshot.jpg",
+      "sourceRepository": "https://github.com/ddsuhaimi/my-portofolio",
+      "sourceSha256": "51c8296d71015ffae5290f4ded45b0d0628e822c962272bb84d41b2896ad1448",
+      "publishedSource": "src/assets/projects/simrs-screenshot.jpg",
+      "publishedSha256": "e768ddd84826dc07f3146e786f535e2ac14f1966ee4f06149f830258673aa018",
+      "transform": "Metadata stripped, JPEG re-encoded",
+      "privacyReview": "Aggregate dashboard only; no patient names or identifiers visible."
+    }
+  ]
+}

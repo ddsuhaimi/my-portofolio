@@ -22,3 +22,9 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# local verification artifacts
+/test-results/
+/playwright-report/
+/.impeccable/review/
+/BUILD-ENVIRONMENT-NOTE.md

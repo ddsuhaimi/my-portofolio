@@ -27,8 +27,12 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci
-      - name: Build
+      - name: Check types
+        run: npm run check
+      - name: Build with privacy gate
         run: npm run build
+      - name: Verify built content and assets
+        run: TEST_BASE_PATH=/my-portofolio npm test
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
