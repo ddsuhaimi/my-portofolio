@@ -41,7 +41,7 @@ For that build, open `http://127.0.0.1:8100/my-portofolio/`. For a custom domain
 
 - `npm run check`: Astro and TypeScript diagnostics.
 - `npm run build`: static routes, Sharp image optimization, and a hash-based provenance manifest for every shipping raster.
-- `npm test`: 17 tests covering the mandatory privacy gate (including rejection of original screenshots), real content, résumé, retained source hashes, privacy crops, root/nested URL handling, every generated internal link, anchors, SEO, and published assets. Run after building.
+- `npm test`: 18 tests covering the mandatory privacy gate (including rejection of original screenshots), real content, résumé, retained source hashes, privacy crops, root/nested URL handling, every generated internal link, anchors, SEO, and published assets. Run after building.
 - `npm run test:browser`: Chromium tests at 320, 390, 768, and 1440px, axe accessibility checks, all project pages, keyboard navigation, reduced motion, and JavaScript-disabled use. Tests serve built files through Playwright request interception, so no dev server is started. Set `CHROMIUM_PATH` if Chromium is not `/usr/bin/chromium`; run `npx playwright install chromium` and adjust that path on machines without system Chromium. Screenshots are saved to `test-results/review/`.
 - `npm audit`: full dependency vulnerability audit; requires registry network access.
 

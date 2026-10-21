@@ -15,13 +15,13 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/dedi-suhaimi/",
   resume: "/Dedi-Suhaimi-Resume.pdf",
   introduction:
-    "I’m Dedi, a software engineer turning complex requirements into clear interfaces and dependable systems.",
+    "I'm Dedi, a software engineer in Indonesia working with TypeScript, React, Vue and Node.js.",
   description:
-    "Dedi Suhaimi is a software engineer in Indonesia building thoughtful interfaces and dependable systems. Explore JagoASN, Chrommandr, and SimRS.",
+    "Projects and work experience from Dedi Suhaimi, a software engineer in Indonesia working with TypeScript, React, Vue and Node.js.",
   approach:
-    "I like the work between the interface and the system: understanding the workflow, making the moving parts fit, and refining the details that people use every day.",
+    "I start by understanding what people need to do, then work through the interface and the backend that supports it.",
   background:
-    "My background in computational mathematics shapes how I approach engineering. I break a problem into smaller parts, question the assumptions, and look for a solution that stays understandable as it grows.",
+    "I studied computational mathematics at Syiah Kuala University. I tend to break a problem into smaller parts before deciding how to build it.",
   education: {
     degree: "Bachelor of Mathematics",
     institution: "Syiah Kuala University",
@@ -29,7 +29,7 @@ export const profile = {
     focus: "Computational Mathematics",
   },
   sourceNote:
-    "Career dates and descriptions reflect the supplied résumé. “Present” is the résumé’s wording.",
+    "Employment dates are as listed in my résumé.",
 } as const;
 export const experience: Experience[] = [
   {
@@ -58,15 +58,15 @@ export const experience: Experience[] = [
 ];
 export const expertise: Expertise[] = [
   {
-    title: "Interfaces & interaction",
+    title: "Frontend",
     description:
-      "Clear, responsive interfaces built around the way people actually work.",
+      "Web interfaces with React and Vue, written in TypeScript.",
     tools: ["TypeScript", "React", "Vue", "Next.js", "Nuxt", "HTML & CSS"],
   },
   {
-    title: "Services & data",
+    title: "Backend",
     description:
-      "Application logic, APIs, and data models that make the interface dependable.",
+      "APIs and database-backed applications with Node.js.",
     tools: [
       "Node.js",
       "NestJS",
@@ -77,9 +77,9 @@ export const expertise: Expertise[] = [
     ],
   },
   {
-    title: "Delivery & reliability",
+    title: "Builds & deployments",
     description:
-      "From build configuration to production debugging, with performance in mind.",
+      "Build configuration, deployments and production troubleshooting.",
     tools: ["Docker", "AWS", "Jenkins", "Webpack", "Vite", "Git"],
   },
 ];

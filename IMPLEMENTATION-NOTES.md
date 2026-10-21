@@ -10,7 +10,7 @@ Directory: `/home/projects/personal/my-portofolio`. Old `/var/www` deployment an
 
 - `npm run check`: 0 errors, 0 warnings, 0 hints.
 - `npm run build`: succeeds; 8 pages and 47 accounted-for shipping rasters. Mandatory privacy gate verifies all 10 reviewed derivative hashes; postbuild refuses original hashes.
-- `npm test`: 17 tests pass, including negative privacy test, factual content, actual PDF, hashes, built links, and SEO/base URLs. Root and `/my-portofolio` builds both tested; local build restored to root.
+- `npm test`: 18 tests pass, including negative privacy test, factual content, actual PDF, hashes, built links, and SEO/base URLs. Root and `/my-portofolio` builds both tested; local build restored to root.
 - `npm run test:browser`: 10 Chromium tests pass at 320/390/768/1440px, including detail pages, keyboard, reduced motion, JS-disabled use, images and axe. Hero assertions require artwork to end before caption and bottom rail.
 - Live HTTP Chromium verification at 320/390/768/1440/1920px: no horizontal overflow, broken images, page errors or axe violations; actual navigation leaves targets below floating nav. Three detail routes return HTTP 200.
 - `npm audit`: 0 vulnerabilities.

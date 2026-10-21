@@ -24,68 +24,64 @@ export const projects: Project[] = [
     role: "Full-stack development",
     title: "JagoASN",
     summary:
-      "Online test-prep portal for Indonesian civil service exam candidates, with subscription plans, secure payments, practice tests, and performance analytics.",
+      "An exam preparation site where Indonesian civil service candidates take practice tests, track their results and subscribe to study plans.",
     tags: ["TypeScript", "Next.js", "Node.js", "PostgreSQL", "Docker"],
     category: "SaaS product",
     year: "Jul 2024",
     link: "https://jagoasn.com",
     linkLabel: "Visit site",
     intro:
-      "JagoASN.com is an online test web portal specifically designed for individuals preparing for civil service exams. The platform offers a variety of features to assist users in their study and exam preparation process.",
+      "JagoASN helps people prepare for Indonesian civil service exams with practice tests and performance reports. Candidates can subscribe to a plan and pay through the site.",
     highlights: [
       {
         title: "Subscription plans",
-        text: "Users can choose from different subscription plans that provide access to various levels of content and features.",
+        text: "Candidates choose a subscription plan to access its content and features.",
       },
       {
         title: "Payment integration",
-        text: "The platform supports secure payment methods, allowing users to easily subscribe and manage their accounts.",
+        text: "Candidates pay for subscriptions through the site and manage them from their accounts.",
       },
       {
         title: "Practice tests",
-        text: "A wide range of practice tests and quizzes are available to help users gauge their knowledge and track their progress.",
+        text: "Practice tests and quizzes let candidates check what they know and track their progress.",
       },
       {
         title: "Performance analytics",
-        text: "Detailed analytics and performance reports help users understand their strengths and areas for improvement.",
-      },
-      {
-        title: "User-friendly interface",
-        text: "The portal is designed with a user-friendly interface to ensure a seamless and intuitive user experience.",
+        text: "Results and performance reports show candidates where they need more practice.",
       },
     ],
     closing:
-      "By leveraging technologies like Docker, Next.js, Node.js, PostgreSQL, and TypeScript, JagoASN.com provides a robust and scalable platform for its users.",
+      "JagoASN uses Next.js and Node.js with PostgreSQL, TypeScript and Docker.",
   },
   {
     slug: "chrommandr",
     role: "Browser extension development",
     title: "Chrommandr",
     summary:
-      "Browser extension that adds a universal command palette for opening tabs, navigating URLs, and managing bookmarks, with custom, user-scriptable commands.",
+      "A browser extension for opening tabs, navigating to URLs and managing bookmarks from a command palette, with support for custom scripts.",
     tags: ["Browser API", "TypeScript"],
     category: "Browser extension",
     year: "Jul 2024",
     link: "https://github.com/ddsuhaimi/chrommandr",
     linkLabel: "View repository",
     intro:
-      "Chrommandr is a browser extension designed to enhance productivity by providing a command palette interface within the browser. It allows users to perform a variety of actions quickly and efficiently without needing to navigate through menus or remember complex keyboard shortcuts.",
+      "Chrommandr puts browser actions in a command palette opened with a keyboard shortcut. It supports tabs, URL navigation and bookmarks, and lets users add commands with their own scripts.",
     highlights: [
       {
         title: "Command palette",
-        text: "A universal command interface that can be summoned with a keyboard shortcut.",
+        text: "Open the command palette with a keyboard shortcut.",
       },
       {
         title: "Browser API integration",
-        text: "Utilizes the Browser API to perform actions such as opening tabs, navigating to URLs, and managing bookmarks.",
+        text: "Uses the Browser API to open tabs, navigate to URLs and manage bookmarks.",
       },
       {
         title: "Customization",
-        text: "Users can customize commands and add their own scripts to extend the functionality.",
+        text: "Users can edit commands and add their own scripts.",
       },
       {
         title: "Built with TypeScript",
-        text: "The project is developed using TypeScript, ensuring type safety and improved code quality.",
+        text: "The extension is written in TypeScript.",
       },
     ],
   },
@@ -94,12 +90,12 @@ export const projects: Project[] = [
     role: "Full-stack development",
     title: "SimRS",
     summary:
-      "Full hospital management system covering patient registration, EMR, clinical workflows, lab and radiology, pharmacy, billing, and reporting.",
+      "Hospital management software for patient registration, medical records and clinical workflows, with lab, radiology, pharmacy, billing and reporting tools.",
     tags: ["TypeScript", "React", "Node.js", "Material UI"],
     category: "Enterprise system",
     year: "Feb 2024",
     intro:
-      "SIMRS (Sistem Informasi Manajemen Rumah Sakit) is a web-based hospital management portal that centralizes patient care, clinical workflows, and hospital operations into a single, scalable platform.",
+      "SIMRS stands for Sistem Informasi Manajemen Rumah Sakit. The web application connects patient registration and clinical records with the operational tools a hospital uses.",
     highlights: [
       {
         title: "Patient registry & EMR",
@@ -107,7 +103,7 @@ export const projects: Project[] = [
       },
       {
         title: "Registration & queueing",
-        text: "Streamlined patient registration, appointment scheduling, automatic queue-numbering, and polyclinic/doctor selection.",
+        text: "Patient registration, appointment scheduling, automatic queue numbers, and polyclinic and doctor selection.",
       },
       {
         title: "Clinical workflows",
