@@ -8,11 +8,12 @@ test('headlines and social copy use direct language without the rejected paired 
   const copy = `${html}\n${og}\n${generator}`;
   for (const phrase of ['Thoughtful software','Built to hold up','staying power','Different problems','The same attention to detail','One palette.','Your browser, within reach','good questions','worth building','work beautifully'])
     assert.ok(!copy.toLowerCase().includes(phrase.toLowerCase()), `Rejected copy returned: ${phrase}`);
-  assert.match(html, /I build software for exam prep, browser tools and hospitals\./);
-  assert.match(html, /interface and the code behind each product/);
-  assert.doesNotMatch(html, /I build web apps and APIs/i);
-  assert.match(og, /exam prep, browser tools/);
-  assert.match(og, /and hospital software/i);
-  assert.doesNotMatch(og, /APIs/i);
+  assert.match(html, /I build software, from the screens people use to the code that runs it\./);
+  assert.match(html, /I'm Dedi, a software engineer based in Indonesia\./);
+  assert.doesNotMatch(html, /exam prep, browser tools and hospitals|I build web apps and APIs/i);
+  assert.match(og, /I build software/);
+  assert.match(og, /the screens people use/);
+  assert.match(og, /the code that runs it/i);
+  assert.doesNotMatch(og, /APIs|exam prep|websites and apps/i);
   assert.match(html, /Send me/);
 });
