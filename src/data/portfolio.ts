@@ -15,9 +15,9 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/dedi-suhaimi/",
   resume: "/Dedi-Suhaimi-Resume.pdf",
   introduction:
-    "I'm Dedi, a software engineer in Indonesia working with TypeScript, React, Vue and Node.js.",
+    "I'm Dedi, a software engineer in Indonesia. I work on both the interface and the code behind each product.",
   description:
-    "Projects and work experience from Dedi Suhaimi, a software engineer in Indonesia working with TypeScript, React, Vue and Node.js.",
+    "Dedi Suhaimi's software projects include an exam preparation site, a browser tool and hospital management software.",
   approach:
     "I start by understanding what people need to do, then work through the interface and the backend that supports it.",
   background:
