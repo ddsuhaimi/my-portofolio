@@ -55,7 +55,7 @@ for (const width of [320, 390, 768, 1440]) {
     await page.goto(root);
     await page.evaluate(() => document.fonts.ready);
     await expect(page.locator("h1")).toHaveText(
-      "I build web apps and APIs.",
+      "I build software, from the screens people use to the code that runs it.",
     );
     await expect(page.locator(".project")).toHaveCount(3);
     await expect(page.locator("#experience h3")).toHaveText([

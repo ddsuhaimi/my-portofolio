@@ -94,7 +94,7 @@ The palette is warm-neutral and lightly green-cast, with product imagery supplyi
 
 ## Copy and voice
 
-Use direct first-person statements and concrete product descriptions. The hero reads “I build web apps and APIs.” Dedi rejects paired marketing fragments such as the previous hero, plus inflated craftsmanship claims and vague metaphors. Keep ordinary factual paragraphs, technical terminology and resume-supported details. Apply the reviewed blader/humanizer skill when editing copy; do not just replace periods with another separator.
+Use direct first-person statements and concrete product descriptions. The hero reads “I build software, from the screens people use to the code that runs it.” It describes Dedi's work broadly without narrowing it to the current project domains or leading with API terminology. The introduction identifies him and his location. Keep ordinary factual paragraphs, technical terminology and resume-supported details. Apply the reviewed blader/humanizer skill when editing copy; do not just replace periods with another separator.
 
 This copy pass covers the homepage, project details, footer, metadata and authored social image. Existing colors, layouts, window treatments and motion are unchanged. The updated build passes 18 static tests (including rejected-copy regression coverage) and 10 Chromium stories; live previews were checked at 320, 390, 768, 1440 and 1920px.
 
